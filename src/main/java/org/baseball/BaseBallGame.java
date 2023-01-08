@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class BaseBallGame {
+    public static final int ALL_STRIKE = 3;
     private final List<BallNum> ballNumbers;
     private static BaseBallGame baseBall;
 
@@ -19,7 +20,7 @@ public class BaseBallGame {
         return baseBall;
     }
 
-    public ResultDto result(List<BallNum> compareBall) {
+    public ResultDto compare(List<BallNum> compareBall) {
         int ball = 0;
         int strike = 0;
 
@@ -33,7 +34,7 @@ public class BaseBallGame {
             }
         }
 
-        return ResultDto.newInstance(strike, ball);
+        return ResultDto.newInstance(List.of(strike, ball));
     }
 
 }

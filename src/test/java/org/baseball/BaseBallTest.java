@@ -20,7 +20,7 @@ public class BaseBallTest {
         List<BallNum> compareBall = List.of(one, three, four);
         BaseBallGame baseBall = BaseBallGame.of(inputBallNum);
         //when
-        ResultDto expected = baseBall.result(compareBall);
+        ResultDto expected = baseBall.compare(compareBall);
 
         //then
 

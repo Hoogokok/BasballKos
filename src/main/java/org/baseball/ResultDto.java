@@ -1,23 +1,24 @@
 package org.baseball;
 
-public class ResultDto {
-    private final int strike;
-    private final int ball;
+import java.util.List;
 
-    private ResultDto(int strike, int ball) {
-        this.strike = strike;
-        this.ball = ball;
-    }
-    
-    public static ResultDto newInstance(int strike, int ball){
-        return  new ResultDto(strike,ball);
+public class ResultDto<T> {
+    private final List<T> results;
+
+    private ResultDto(List<T> result) {
+        this.results = result;
     }
 
-    public int getStrike() {
-        return strike;
+    public static <T> ResultDto newInstance(List<T> result) {
+        return new ResultDto(result);
     }
 
-    public int getBall() {
-        return ball;
+    public T getStrike() {
+        return results.get(0);
     }
+
+    public T getBall() {
+        return results.get(1);
+    }
+
 }

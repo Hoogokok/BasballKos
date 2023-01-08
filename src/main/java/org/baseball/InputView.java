@@ -8,11 +8,11 @@ import java.util.stream.Collectors;
 public class InputView {
     private static final String INPUT_BALL_GUIDE = "숫자 3개를 입력하세요.";
     private static final Scanner sc = new Scanner(System.in);
-    public List<String> printInputView(){
+    public static ExpectedNumberDto printInputView(){
         System.out.println(INPUT_BALL_GUIDE);
         String tempBallNum = sc.nextLine();
 
-        return split(tempBallNum);
+        return ExpectedNumberDto.newInstance(split(tempBallNum));
     }
 
     private static List<String> split(String input) {
