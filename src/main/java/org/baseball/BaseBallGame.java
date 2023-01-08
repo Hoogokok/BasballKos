@@ -34,7 +34,7 @@ public class BaseBallGame {
             }
         }
 
-        return ResultDto.newInstance(List.of(strike, ball));
+        return ResultDto.newInstance(strike, ball);
     }
 
 }

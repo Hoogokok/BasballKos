@@ -3,22 +3,24 @@ package org.baseball;
 import java.util.List;
 
 public class ResultDto<T> {
-    private final List<T> results;
+    private final T strike;
+    private final T ball;
 
-    private ResultDto(List<T> result) {
-        this.results = result;
+    private ResultDto(T strike, T ball) {
+        this.strike = strike;
+        this.ball = ball;
     }
 
-    public static <T> ResultDto newInstance(List<T> result) {
-        return new ResultDto(result);
+    public static <T> ResultDto newInstance(T strike, T ball) {
+        return new ResultDto(strike, ball);
     }
 
     public T getStrike() {
-        return results.get(0);
+        return strike;
     }
 
     public T getBall() {
-        return results.get(1);
+        return ball;
     }
 
 }
