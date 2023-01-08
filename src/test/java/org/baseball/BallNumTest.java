@@ -1,3 +1,5 @@
+package org.baseball;
+
 import org.baseball.BallNum;
 import org.junit.jupiter.api.Test;
 

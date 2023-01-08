@@ -1,6 +1,5 @@
-import org.baseball.BallNum;
-import org.baseball.BaseBall;
-import org.baseball.ResultDto;
+package org.baseball;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class BaseBallTest {
         List<BallNum> inputBallNum = List.of(one, two, three);
         BallNum four = BallNum.of(4);
         List<BallNum> compareBall = List.of(one, three, four);
-        BaseBall baseBall = BaseBall.of(inputBallNum);
+        BaseBallGame baseBall = BaseBallGame.of(inputBallNum);
         //when
         ResultDto expected = baseBall.result(compareBall);
 

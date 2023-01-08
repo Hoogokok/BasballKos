@@ -3,22 +3,21 @@ package org.baseball;
 import java.util.List;
 import java.util.Objects;
 
-public class BaseBall {
+public class BaseBallGame {
     private final List<BallNum> ballNumbers;
-    private static BaseBall baseBall;
+    private static BaseBallGame baseBall;
 
-    private BaseBall(List<BallNum> ballNums) {
-        this.ballNumbers = ballNums;
+    private BaseBallGame(List<BallNum> correctNumbers) {
+        this.ballNumbers = correctNumbers;
     }
 
-    public static BaseBall of(List<BallNum> ballNums) {
+    public static BaseBallGame of(List<BallNum> correctNumbers) {
         if (Objects.isNull(baseBall)) {
-            baseBall = new BaseBall(ballNums);
+            baseBall = new BaseBallGame(correctNumbers);
             return baseBall;
         }
         return baseBall;
     }
-
 
     public ResultDto result(List<BallNum> compareBall) {
         int ball = 0;
@@ -38,3 +37,5 @@ public class BaseBall {
     }
 
 }
+
+
