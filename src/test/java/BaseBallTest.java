@@ -1,13 +1,17 @@
+import org.baseball.BallNum;
+import org.baseball.BaseBall;
+import org.baseball.ResultDto;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BaseBallTest {
 
     @Test
-    void countBall() {
+    void totalResult() {
         //given
         BallNum one = BallNum.of(1);
         BallNum two = BallNum.of(2);
@@ -17,29 +21,12 @@ public class BaseBallTest {
         List<BallNum> compareBall = List.of(one, three, four);
         BaseBall baseBall = BaseBall.of(inputBallNum);
         //when
+        ResultDto expected = baseBall.result(compareBall);
 
         //then
 
-        int expected = baseBall.countBall(compareBall);
 
-        assertEquals(expected, 1);
-    }
-
-    @Test
-    void countStrike(){
-        BallNum one = BallNum.of(1);
-        BallNum two = BallNum.of(2);
-        BallNum three = BallNum.of(3);
-        BallNum four = BallNum.of(4);
-        List<BallNum> inputBallNum = List.of(one, two, three);
-        List<BallNum> compareBall = List.of(one, three, four);
-        BaseBall baseBall = BaseBall.of(inputBallNum);
-        //when
-
-        //then
-
-        int expected = baseBall.countStrike(compareBall);
-
-        assertEquals(expected, 1);
+        assertAll(() -> assertEquals(expected.getBall(), 1),
+                () -> assertEquals(expected.getStrike(), 1));
     }
 }
